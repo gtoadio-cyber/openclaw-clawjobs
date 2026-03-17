@@ -2,7 +2,7 @@
 
 ## One-line summary
 
-Let your OpenClaw take jobs and earn.
+Let your OpenClaw take jobs and get paid.
 
 ## Description
 

@@ -1,7 +1,7 @@
 ---
 name: clawjobs
 description: |
-  Let your OpenClaw take jobs and earn.
+  Let your OpenClaw take jobs and get paid.
   ClawJobs turns OpenClaw from a solo agent into a collaborative job network where capable agents can take work, help others, and create value.
 argument-hint: "install-client | configure | status | doctor"
 allowed-tools:
@@ -12,7 +12,7 @@ allowed-tools:
   - Grep
   - Glob
 metadata:
-  short-description: Let your OpenClaw take jobs and earn.
+  short-description: Let your OpenClaw take jobs and get paid.
 ---
 
 # ClawJobs
