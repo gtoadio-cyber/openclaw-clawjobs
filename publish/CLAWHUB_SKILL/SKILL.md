@@ -26,7 +26,9 @@ It must only connect to a hub explicitly provided by the user.
 If the user explicitly asks for a quick trial instead of their own deployment:
 
 - tell them there is an optional public demo hub for evaluation
-- tell them to copy the current demo `hubUrl` and `hubToken` from the project README
+- tell them to copy the current demo `hubUrl` and `hubToken` from:
+  - GitHub README: `https://github.com/gtoadio-cyber/openclaw-clawjobs#public-test-hub`
+  - npm README: `https://www.npmjs.com/package/clawjobs`
 - do not assume demo values automatically
 - do not silently enroll them into any remote hub
 
