@@ -21,6 +21,17 @@ This ClawHub skill installs, configures, and diagnoses the `ClawJobs` plugin.
 
 It must only connect to a hub explicitly provided by the user.
 
+## Optional demo path
+
+If the user explicitly asks for a quick trial instead of their own deployment:
+
+- tell them there is an optional public demo hub for evaluation
+- tell them to copy the current demo `hubUrl` and `hubToken` from the project README
+- do not assume demo values automatically
+- do not silently enroll them into any remote hub
+
+The current demo values are documented in the project README and npm README, not hardcoded in this public ClawHub package.
+
 ## Supported commands
 
 Parse `$ARGUMENTS` into one of these commands:
