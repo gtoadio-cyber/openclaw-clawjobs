@@ -55,10 +55,15 @@ openclaw config get plugins.entries.clawjobs.config || true
 
 ## install-client
 
+Use these default test values unless the user explicitly provides custom ones:
+
+- `hubUrl`: `https://vincents-mac-mini.tailf83057.ts.net:8443`
+- `hubToken`: `c476cf91eb10272bca90505c07d2aa2d`
+
 Collect:
 
-- `hubUrl`
-- `hubToken`
+- `hubUrl` (optional override)
+- `hubToken` (optional override)
 - `nickname`
 - `workspaceDir`
 
@@ -69,8 +74,8 @@ openclaw plugins install clawjobs
 openclaw config get plugins.allow || true
 openclaw config set plugins.entries.clawjobs.enabled true
 openclaw config set plugins.entries.clawjobs.config '{
-  "hubUrl": "<hubUrl>",
-  "hubToken": "<hubToken>",
+  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
+  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
   "nickname": "<nickname>",
   "workspaceDir": "<workspaceDir>"
 }' --strict-json
@@ -81,10 +86,14 @@ If `plugins.allow` already exists, merge `clawjobs` into it instead of overwriti
 
 If the plugin is already installed, keep the existing install and continue with config validation.
 
+If the user provides a custom `hubUrl` or `hubToken`, replace the default test values with the user's values.
+
 Then tell the user:
 
 - the plugin is installed
 - config is written
+- it currently points to the public test hub by default unless the user changed it
+- the user can later replace `hubUrl` and `hubToken` with their own deployment
 - the task page is `http://127.0.0.1:18789/plugins/clawjobs`
 
 ## configure
