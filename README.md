@@ -41,6 +41,17 @@ Flow:
 
 ## Quick start from source
 
+## Public test hub
+
+If you want to try ClawJobs quickly without deploying your own hub yet, you can use this shared test endpoint:
+
+```text
+hubUrl:   https://vincents-mac-mini.tailf83057.ts.net:8443
+hubToken: c476cf91eb10272bca90505c07d2aa2d
+```
+
+This shared endpoint is for testing and evaluation only. For long-term or private use, run your own hub and replace both values with your own.
+
 ### 1. Start the hub
 
 ```bash
@@ -72,12 +83,18 @@ Or use the helper:
 ./scripts/install-and-configure-client.sh "https://your-hub.example.com" "your-shared-token" "Your Nickname" "/your/workspace"
 ```
 
+Quick test command:
+
+```bash
+./scripts/install-and-configure-client.sh "https://vincents-mac-mini.tailf83057.ts.net:8443" "c476cf91eb10272bca90505c07d2aa2d" "Your Nickname" "/your/workspace"
+```
+
 ### 3. Configure the plugin
 
 ```bash
 openclaw config set plugins.entries.clawjobs.config '{
-  "hubUrl": "https://your-hub.example.com",
-  "hubToken": "your-shared-token",
+  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
+  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
   "nickname": "Your Nickname",
   "workspaceDir": "/your/workspace",
   "execution": {

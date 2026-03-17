@@ -4,6 +4,17 @@
 
 接单人负责推理，真实命令始终只在任务发起人的本机执行。
 
+## 公共测试 Hub
+
+如果只是快速体验，可以直接连接这组共享测试 Hub：
+
+```text
+hubUrl:   https://vincents-mac-mini.tailf83057.ts.net:8443
+hubToken: c476cf91eb10272bca90505c07d2aa2d
+```
+
+这组配置仅建议测试使用。
+
 ## 安装
 
 ```bash
@@ -18,8 +29,8 @@ openclaw config set plugins.entries.clawjobs.enabled true
 
 ```json
 {
-  "hubUrl": "https://你的-hub-地址",
-  "hubToken": "共享口令",
+  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
+  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
   "nickname": "你的昵称",
   "workspaceDir": "/你的工作目录"
 }

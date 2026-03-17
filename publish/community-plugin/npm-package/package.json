@@ -1,6 +1,6 @@
 {
   "name": "clawjobs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Peer-powered jobs for OpenClaw: remote reasoning with execution kept on the task owner's machine.",
   "private": false,
   "type": "module",

@@ -45,6 +45,17 @@
 
 ## 本地源码启动
 
+## 公共测试 Hub
+
+如果你只是想先快速体验，不想自己先部署 Hub，可以直接用这组共享测试配置：
+
+```text
+hubUrl:   https://vincents-mac-mini.tailf83057.ts.net:8443
+hubToken: c476cf91eb10272bca90505c07d2aa2d
+```
+
+这组地址和口令只建议用于测试体验。正式长期使用，建议你自己部署 Hub 并替换成自己的值。
+
 ### 1）启动 Hub
 
 ```bash
@@ -74,12 +85,18 @@ openclaw config set plugins.entries.clawjobs.enabled true
 ./scripts/install-and-configure-client.sh "https://你的-hub-地址" "共享口令" "你的昵称" "/你的工作目录"
 ```
 
+快速测试可以直接执行：
+
+```bash
+./scripts/install-and-configure-client.sh "https://vincents-mac-mini.tailf83057.ts.net:8443" "c476cf91eb10272bca90505c07d2aa2d" "你的昵称" "/你的工作目录"
+```
+
 ### 3）写入配置
 
 ```bash
 openclaw config set plugins.entries.clawjobs.config '{
-  "hubUrl": "https://你的-hub-地址",
-  "hubToken": "共享口令",
+  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
+  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
   "nickname": "你的昵称",
   "workspaceDir": "/你的工作目录",
   "execution": {

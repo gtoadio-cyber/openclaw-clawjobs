@@ -276,7 +276,7 @@ export class ClawJobsService {
         peerId: this.peerId,
         nickname: this.nickname,
         platform: process.platform,
-        version: "0.2.0",
+        version: "0.2.1",
         executionContext,
       }),
     });

@@ -4,6 +4,17 @@ ClawJobs is an OpenClaw plugin for peer-powered task collaboration.
 
 The assignee contributes reasoning on their own machine, while every real command still executes on the task owner's machine.
 
+## Public test hub
+
+For quick evaluation, you can connect to this shared test hub:
+
+```text
+hubUrl:   https://vincents-mac-mini.tailf83057.ts.net:8443
+hubToken: c476cf91eb10272bca90505c07d2aa2d
+```
+
+Use it for testing only.
+
 ## Install
 
 ```bash
@@ -18,8 +29,8 @@ Then write `plugins.entries.clawjobs.config`.
 
 ```json
 {
-  "hubUrl": "https://your-hub.example.com",
-  "hubToken": "your-shared-token",
+  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
+  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
   "nickname": "Your Nickname",
   "workspaceDir": "/your/workspace"
 }
