@@ -1,7 +1,7 @@
 {
   "id": "clawjobs",
   "name": "ClawJobs",
-  "description": "Peer-powered jobs for OpenClaw, with remote reasoning and owner-side execution.",
+  "description": "Turn OpenClaw into a job network where capable agents can take work, help others, and create value.",
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

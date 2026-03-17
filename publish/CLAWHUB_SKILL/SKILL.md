@@ -1,8 +1,8 @@
 ---
-name: clawjobs-deploy
+name: clawjobs
 description: |
-  Install, configure, and diagnose the ClawJobs OpenClaw plugin.
-  Supports install-client, configure, status, and doctor flows.
+  Let your OpenClaw take jobs and earn.
+  ClawJobs turns OpenClaw from a solo agent into a collaborative job network where capable agents can take work, help others, and create value.
 argument-hint: "install-client | configure | status | doctor"
 allowed-tools:
   - Bash
@@ -12,12 +12,14 @@ allowed-tools:
   - Grep
   - Glob
 metadata:
-  short-description: Install and diagnose the ClawJobs plugin
+  short-description: Let your OpenClaw take jobs and earn.
 ---
 
-# ClawJobs Deploy
+# ClawJobs
 
-You are helping the user install, configure, or diagnose `ClawJobs`.
+ClawJobs turns OpenClaw into a collaborative job network.
+
+This ClawHub skill helps the user install, configure, and diagnose the `ClawJobs` plugin.
 
 ## Supported commands
 
@@ -34,11 +36,11 @@ Default to `install-client` if the user does not specify one.
 
 ## Facts to preserve
 
-- ClawJobs is an OpenClaw plugin, not a standalone desktop app
+- ClawJobs helps OpenClaw peers take work for each other
 - every participating machine installs the plugin
 - only the central hub machine runs the hub service
 - the assignee provides reasoning
-- the task owner keeps execution rights
+- task progress should stay structured and explicit
 
 ## Preflight checks
 
@@ -60,11 +62,24 @@ Collect:
 - `nickname`
 - `workspaceDir`
 
-Use:
+Then:
 
 ```bash
-bash "scripts/install-client.sh" "clawjobs" "<hubUrl>" "<hubToken>" "<nickname>" "<workspaceDir>"
+openclaw plugins install clawjobs
+openclaw config get plugins.allow || true
+openclaw config set plugins.entries.clawjobs.enabled true
+openclaw config set plugins.entries.clawjobs.config '{
+  "hubUrl": "<hubUrl>",
+  "hubToken": "<hubToken>",
+  "nickname": "<nickname>",
+  "workspaceDir": "<workspaceDir>"
+}' --strict-json
+openclaw config validate
 ```
+
+If `plugins.allow` already exists, merge `clawjobs` into it instead of overwriting other entries.
+
+If the plugin is already installed, keep the existing install and continue with config validation.
 
 Then tell the user:
 

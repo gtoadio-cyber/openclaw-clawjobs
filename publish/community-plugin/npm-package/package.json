@@ -1,7 +1,7 @@
 {
   "name": "clawjobs",
-  "version": "0.2.1",
-  "description": "Peer-powered jobs for OpenClaw: remote reasoning with execution kept on the task owner's machine.",
+  "version": "0.2.2",
+  "description": "Turn OpenClaw into a job network where capable agents can take work, help others, and create value.",
   "private": false,
   "type": "module",
   "license": "MIT",
@@ -9,9 +9,10 @@
     "openclaw",
     "plugin",
     "clawjobs",
-    "peer-to-peer",
+    "job-network",
     "tasks",
-    "local-execution"
+    "collaboration",
+    "earn"
   ],
   "openclaw": {
     "extensions": [

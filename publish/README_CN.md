@@ -5,7 +5,7 @@
 ## 目录说明
 
 - `community-plugin/`：npm 插件包、社区收录文案、提交流程材料
-- `CLAWHUB_SKILL/`：发布到 ClawHub 的安装/诊断 skill
+- `CLAWHUB_SKILL/`：发布到 ClawHub 的单文件 skill
 - `friend-test/`：给朋友直接体验的测试包
 - `hub-release/`：Hub 部署包
 
@@ -22,7 +22,7 @@
 - OpenClaw 插件包：`clawjobs`
 - 插件 id：`clawjobs`
 - Hub 包：`openclaw-clawjobs-hub`
-- ClawHub skill slug：`clawjobs-deploy`
+- ClawHub skill slug：`clawjobs`
 
 ## 说明
 

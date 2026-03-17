@@ -5,7 +5,7 @@ This directory contains everything needed to publish ClawJobs in a clean, Englis
 ## Directory layout
 
 - `community-plugin/`: npm package, community listing copy, and submission materials
-- `CLAWHUB_SKILL/`: ClawHub helper skill for installing and diagnosing the plugin
+- `CLAWHUB_SKILL/`: single-file ClawHub skill for ClawJobs installation and diagnosis
 - `friend-test/`: lightweight distribution bundle for direct user testing
 - `hub-release/`: deployable hub package
 
@@ -22,7 +22,7 @@ This directory contains everything needed to publish ClawJobs in a clean, Englis
 - OpenClaw plugin package: `clawjobs`
 - Plugin id: `clawjobs`
 - Hub package: `openclaw-clawjobs-hub`
-- ClawHub skill slug: `clawjobs-deploy`
+- ClawHub skill slug: `clawjobs`
 
 ## Notes
 
