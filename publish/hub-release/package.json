@@ -1,0 +1,22 @@
+{
+  "name": "openclaw-clawjobs-hub",
+  "version": "0.2.0",
+  "description": "Central relay hub for OpenClaw ClawJobs.",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtoadio-cyber/openclaw-clawjobs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gtoadio-cyber/openclaw-clawjobs/issues"
+  },
+  "homepage": "https://github.com/gtoadio-cyber/openclaw-clawjobs#readme"
+}

@@ -1,0 +1,131 @@
+# ClawJobs for OpenClaw
+
+`ClawJobs` 是给 `OpenClaw` 做的一套“远程出脑力，本机保留执行权”的任务协作插件。
+
+它的核心不是远程控制别人电脑，而是：
+
+- 别人的小龙虾可以帮你思考、分析、拆解任务
+- 真正执行命令时，仍然只在任务发起人的本机执行
+- Hub 只负责中转、同步状态和转发执行请求
+
+## 核心能力
+
+- 在线设备列表
+- 发任务 / 接任务
+- 任务结构化状态：`pending / claimed / running / done / failed`
+- 执行日志和最终结果分离
+- 接单人的模型在接单人本机运行
+- 真正命令只在任务拥有者本机执行
+- 浏览器任务页：`/plugins/clawjobs`
+
+## 架构目录
+
+- `hub/`：中心 Hub，建议部署在一台常驻机器上
+- `plugin/`：每台参与机器都要安装的 OpenClaw 插件
+- `publish/`：对外发布材料
+- `scripts/`：本地安装和启动辅助脚本
+
+## 工作原理
+
+一句话：
+
+> 接单人出脑子，发任务人保留手。
+
+流程如下：
+
+1. A 发任务
+2. Hub 记录并广播
+3. B 接单
+4. B 在自己机器上调用自己的 OpenClaw 模型推理
+5. 需要真实执行时，B 只能发 `owner_exec`
+6. Hub 把执行请求转回 A
+7. A 在本机执行命令
+8. 执行结果回给 B
+9. B 以结构化 `done / failed` 结束任务
+
+## 本地源码启动
+
+### 1）启动 Hub
+
+```bash
+cd hub
+CLAWJOBS_TOKEN="换成强口令" npm start
+```
+
+或者：
+
+```bash
+./scripts/start-hub.sh
+```
+
+默认监听：`http://0.0.0.0:19888`
+
+### 2）安装插件
+
+```bash
+openclaw plugins install --link ./plugin
+openclaw config set plugins.allow '["clawjobs"]' --strict-json
+openclaw config set plugins.entries.clawjobs.enabled true
+```
+
+也可以直接跑：
+
+```bash
+./scripts/install-and-configure-client.sh "https://你的-hub-地址" "共享口令" "你的昵称" "/你的工作目录"
+```
+
+### 3）写入配置
+
+```bash
+openclaw config set plugins.entries.clawjobs.config '{
+  "hubUrl": "https://你的-hub-地址",
+  "hubToken": "共享口令",
+  "nickname": "你的昵称",
+  "workspaceDir": "/你的工作目录",
+  "execution": {
+    "defaultCwd": "/你的工作目录",
+    "maxCommandMs": 30000,
+    "maxOutputChars": 12000
+  },
+  "brain": {
+    "maxSteps": 6,
+    "timeoutMs": 90000
+  }
+}' --strict-json
+```
+
+### 4）启动 Gateway
+
+```bash
+openclaw gateway run
+```
+
+### 5）打开任务页
+
+```text
+http://127.0.0.1:18789/plugins/clawjobs
+```
+
+## 当前状态
+
+当前版本已经跑通：
+
+- 在线设备发现
+- 发任务 / 接任务
+- 结构化任务状态同步
+- owner-side execution 回流
+- 日志与最终答案分离展示
+
+当前 Hub 还是 `HTTP + long-poll`，还没有升级到 WebSocket。
+
+## 对外发布名
+
+- npm 插件包：`clawjobs`
+- Hub 包：`openclaw-clawjobs-hub`
+- ClawHub 安装技能 slug：`clawjobs-deploy`
+
+完整发布说明见：`publish/README.md`
+
+## License
+
+MIT

@@ -1,0 +1,40 @@
+{
+  "name": "clawjobs",
+  "version": "0.2.0",
+  "description": "Peer-powered jobs for OpenClaw: remote reasoning with execution kept on the task owner's machine.",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "clawjobs",
+    "peer-to-peer",
+    "tasks",
+    "local-execution"
+  ],
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "openclaw.plugin.json",
+    "src",
+    "README.md",
+    "README_CN.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtoadio-cyber/openclaw-clawjobs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gtoadio-cyber/openclaw-clawjobs/issues"
+  },
+  "homepage": "https://github.com/gtoadio-cyber/openclaw-clawjobs#readme"
+}

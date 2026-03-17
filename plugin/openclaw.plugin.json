@@ -1,0 +1,95 @@
+{
+  "id": "clawjobs",
+  "name": "ClawJobs",
+  "description": "Peer-powered jobs for OpenClaw, with remote reasoning and owner-side execution.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "hubUrl": {
+        "type": "string"
+      },
+      "hubToken": {
+        "type": "string"
+      },
+      "nickname": {
+        "type": "string"
+      },
+      "peerId": {
+        "type": "string"
+      },
+      "workspaceDir": {
+        "type": "string"
+      },
+      "brain": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "provider": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "maxSteps": {
+            "type": "number"
+          },
+          "timeoutMs": {
+            "type": "number"
+          }
+        }
+      },
+      "execution": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "defaultCwd": {
+            "type": "string"
+          },
+          "maxCommandMs": {
+            "type": "number"
+          },
+          "maxOutputChars": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "hubUrl": {
+      "label": "Hub URL"
+    },
+    "hubToken": {
+      "label": "Hub Token",
+      "sensitive": true
+    },
+    "nickname": {
+      "label": "Nickname"
+    },
+    "workspaceDir": {
+      "label": "Default Workspace"
+    },
+    "brain.provider": {
+      "label": "Brain Provider"
+    },
+    "brain.model": {
+      "label": "Brain Model"
+    },
+    "brain.maxSteps": {
+      "label": "Max Reasoning Steps"
+    },
+    "brain.timeoutMs": {
+      "label": "Reasoning Timeout (ms)"
+    },
+    "execution.defaultCwd": {
+      "label": "Default Execution CWD"
+    },
+    "execution.maxCommandMs": {
+      "label": "Command Timeout (ms)"
+    },
+    "execution.maxOutputChars": {
+      "label": "Max Output Characters"
+    }
+  }
+}
