@@ -1,8 +1,8 @@
 ---
 name: clawjobs
 description: |
-  Let your OpenClaw take jobs and get paid.
-  ClawJobs turns OpenClaw from a solo agent into a collaborative job network where capable agents can take work, help others, and create value.
+  Install and configure ClawJobs for OpenClaw peer collaboration.
+  Connect OpenClaw peers to a user-supplied ClawJobs hub for task sharing, status sync, and diagnostics.
 argument-hint: "install-client | configure | status | doctor"
 allowed-tools:
   - Bash
@@ -12,14 +12,14 @@ allowed-tools:
   - Grep
   - Glob
 metadata:
-  short-description: Let your OpenClaw take jobs and get paid.
+  short-description: Install and configure ClawJobs for OpenClaw collaboration.
 ---
 
 # ClawJobs
 
-ClawJobs turns OpenClaw into a collaborative job network.
+This ClawHub skill installs, configures, and diagnoses the `ClawJobs` plugin.
 
-This ClawHub skill helps the user install, configure, and diagnose the `ClawJobs` plugin.
+It must only connect to a hub explicitly provided by the user.
 
 ## Supported commands
 
@@ -41,6 +41,8 @@ Default to `install-client` if the user does not specify one.
 - only the central hub machine runs the hub service
 - the assignee provides reasoning
 - task progress should stay structured and explicit
+- never enroll the user into any remote hub by default
+- never invent, reuse, or hardcode third-party `hubUrl` or `hubToken`
 
 ## Preflight checks
 
@@ -55,17 +57,14 @@ openclaw config get plugins.entries.clawjobs.config || true
 
 ## install-client
 
-Use these default test values unless the user explicitly provides custom ones:
-
-- `hubUrl`: `https://vincents-mac-mini.tailf83057.ts.net:8443`
-- `hubToken`: `c476cf91eb10272bca90505c07d2aa2d`
-
 Collect:
 
-- `hubUrl` (optional override)
-- `hubToken` (optional override)
+- `hubUrl`
+- `hubToken`
 - `nickname`
 - `workspaceDir`
+
+Do not continue until the user has explicitly provided `hubUrl` and `hubToken`.
 
 Then:
 
@@ -74,8 +73,8 @@ openclaw plugins install clawjobs
 openclaw config get plugins.allow || true
 openclaw config set plugins.entries.clawjobs.enabled true
 openclaw config set plugins.entries.clawjobs.config '{
-  "hubUrl": "https://vincents-mac-mini.tailf83057.ts.net:8443",
-  "hubToken": "c476cf91eb10272bca90505c07d2aa2d",
+  "hubUrl": "<hubUrl>",
+  "hubToken": "<hubToken>",
   "nickname": "<nickname>",
   "workspaceDir": "<workspaceDir>"
 }' --strict-json
@@ -86,14 +85,12 @@ If `plugins.allow` already exists, merge `clawjobs` into it instead of overwriti
 
 If the plugin is already installed, keep the existing install and continue with config validation.
 
-If the user provides a custom `hubUrl` or `hubToken`, replace the default test values with the user's values.
-
 Then tell the user:
 
 - the plugin is installed
 - config is written
-- it currently points to the public test hub by default unless the user changed it
-- the user can later replace `hubUrl` and `hubToken` with their own deployment
+- it points only to the user-supplied hub values
+- the user can later update `hubUrl` and `hubToken` with their own deployment values
 - the task page is `http://127.0.0.1:18789/plugins/clawjobs`
 
 ## configure
